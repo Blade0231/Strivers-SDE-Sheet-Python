@@ -9,7 +9,12 @@ def nextPermutation(permutation, n):
             return permutation.reverse()
         else:
             if permutation[i] > permutation[i-1]:
-                for j in reversed(range(n)):
+                permutation[i], permutation[i-1] = permutation[i-1], permutation[i]
+                permutation[i:] = sorted(permutation[i:])
+                return permutation
+
+
+print(nextPermutation([1,3,2], 3))
                     
 
 
